@@ -7,7 +7,7 @@ int T, N;
 vector<vector<int>> p;
 //vector<vector<int>> sec_cre;
 //vector<vector<int>> sec_dec;
-int max_subsecuencia_creciente(int i,vector<int> caso, int ult,vector<vector<int>> sec_cre) {  //reutilizo lo visto en clase cambiando parametros y adecuando las funciones
+int max_subsecuencia_creciente(int i,vector<int> & caso, int ult,vector<vector<int>> & sec_cre) {  //reutilizo lo visto en clase cambiando parametros y adecuando las funciones
 	if (i >= caso.size()) return 0;
 
 	if (ult == -1 && sec_cre[i][caso.size()] != -1) return sec_cre[i][caso.size()];
@@ -25,7 +25,7 @@ int max_subsecuencia_creciente(int i,vector<int> caso, int ult,vector<vector<int
 	sec_cre[i][segundo_index] = max(max_subsecuencia_creciente(i+1,caso, ult,sec_cre), max_subsecuencia_creciente(i+1,caso, i,sec_cre) + 1); //aca cambio de q enevs de q sume el numero y me de el "ancho" que me de la long entonces sumo 1
 	return sec_cre[i][segundo_index];
 }
-int max_subsecuencia_decreciente(int i,vector<int> caso, int ult,vector<vector<int>> sec_dec) {
+int max_subsecuencia_decreciente(int i,vector<int> & caso, int ult,vector<vector<int>> & sec_dec) {
 	if (i >= caso.size()) return 0;
 
 	if (ult == -1 && sec_dec[i][caso.size()] != -1) return sec_dec[i][caso.size()];
