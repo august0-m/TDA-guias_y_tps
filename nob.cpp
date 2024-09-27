@@ -71,6 +71,23 @@ int main (){
         a=p[j].size();
         vector<vector<int>> sec_cre(a,vector<int>(a+1, -1)) ;  //pongo el -1 para ver si chequee
         vector<vector<int>> sec_dec(a, vector<int>(a+1, -1));
+         int long_crec =max_subsecuencia_creciente(0,p[j],-1,sec_cre);
+        int long_dec =max_subsecuencia_decreciente(0,p[j],-1,sec_dec);
+        //int long_dec =funcion_posta(0,p[j],-1,-1,sec_dec,sec_cre);
+        if(long_crec== p[j].size() && (long_dec)== p[j].size()){
+            long_dec =0;
+        }
+        if (long_crec == p[j].size()){
+            long_dec = 0;
+        }
+        if (long_dec == p[j].size()){
+            long_crec = 0;
+        }
+        cout <<p[j].size()-(long_crec + long_dec )<<endl;
+    }
+        return 0;
+}   
+
          //    //para cada caso, busco la subseq mas larga, si es mas grande, actualizo su valor, sino no
         //    if(max_long_cre <= busco_sec_cre(l,p[j],sec_cre)){
         //        max_long_cre=busco_sec_cre(l,p[j],sec_cre);
@@ -84,9 +101,9 @@ int main (){
        //if(((max_subsecuencia_creciente(0,p[j],-1,sec_cre))== p[j].size()) ||(max_subsecuencia_decreciente(0,p[j],-1,sec_dec) == p[j].size() )){
        //     return 0;
        //  }
-        cout <<p[j].size()-((max_subsecuencia_creciente(0,p[j],-1,sec_cre))+(max_subsecuencia_decreciente(0,p[j],-1,sec_dec)) )<<endl;
-       // cout<< max_subsecuencia_decreciente(0,p[j],-1,sec_dec)<<endl;
-    }
-        return 0;
-}   
+//        cout <<p[j].size()-((max_subsecuencia_creciente(0,p[j],-1,sec_cre))+(max_subsecuencia_decreciente(0,p[j],-1,sec_dec)) )<<endl;
+//       // cout<< max_subsecuencia_decreciente(0,p[j],-1,sec_dec)<<endl;
+//    }
+//        return 0;
+//}   
 
